@@ -1,13 +1,18 @@
 import axios from 'axios'
 import React from 'react'
+import { NextSeo } from 'next-seo'
 import Fork from '../components/Fork'
 import Todo from '../components/Todo'
 
 const Index = ({ stars }) => (
-	<React.Fragment>
+	<>
+		<NextSeo
+			title="NextSimpleStarter"
+			description="Simple and Accessible PWA boilerplate with Nextjs 9 + React Hooks"
+		/>
 		<Fork stars={stars} />
 		<Todo />
-	</React.Fragment>
+	</>
 )
 
 Index.getInitialProps = async () => {
