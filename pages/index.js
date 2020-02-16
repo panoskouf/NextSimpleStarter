@@ -1,4 +1,4 @@
-import 'isomorphic-fetch'
+import axios from 'axios'
 import React from 'react'
 import Fork from '../components/Fork'
 import Todo from '../components/Todo'
@@ -11,11 +11,11 @@ const Index = ({ stars }) => (
 )
 
 Index.getInitialProps = async () => {
-	const res = await fetch(
+	const res = await axios.get(
 		'https://api.github.com/repos/ooade/NextSimpleStarter'
 	)
-	const json = await res.json()
-	return { stars: json.stargazers_count }
+
+	return { stars: res.data.stargazers_count }
 }
 
 export default Index
